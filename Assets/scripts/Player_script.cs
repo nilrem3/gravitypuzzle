@@ -41,6 +41,8 @@ public class Player_script : MonoBehaviour
     }
 
     void FixedUpdate() {
+        
+
         if (mouseMoves)
         {
 
@@ -59,7 +61,7 @@ public class Player_script : MonoBehaviour
 
                 newMouseX = mouseX;
                 newMouseY = mouseY;
-
+                
             }
         }
 
@@ -94,9 +96,9 @@ public class Player_script : MonoBehaviour
             Application.Quit();
             
         }
-      
 
 
+        
 
 
     }
@@ -112,10 +114,5 @@ public class Player_script : MonoBehaviour
             }
         }
     }
-    void LateUpdate()
-    {
-
-        
-        
-    }
+    
 }
