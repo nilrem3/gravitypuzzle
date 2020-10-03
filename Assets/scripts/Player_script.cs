@@ -1,38 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class Player_script : MonoBehaviour
 {
-    Rigidbody m_Rigidbody;
+    public Rigidbody player;
     public GameObject playerCamera;
-    public float m_Speed = 20f;
+    public float playerSpeed = 200f;
+
     float mouseX;
     float mouseY;
-    float lateMouseX;
-    float lateMouseY;
-    float changeInMouseY;
-    float changeInMouseX;
-    public float jumpSpeed = 100;
+    float newMouseX;
+    float newMouseY;
+    float mouseDeltaY;
+    float mouseDeltaX;
+    public float jumpSpeed = 200f;
     
     public bool mouseMoves = true;
     void Start()
     {
         
         //Fetch the Rigidbody from the GameObject with this script attached
-        m_Rigidbody = GetComponent<Rigidbody>();
+        player = GetComponent<Rigidbody>();
+        
     }
-    void Update()
-    {
-        if (Input.GetKeyDown("q"))
-        {
-            if (mouseMoves)
-            {
+    void Update() { 
+        if (Input.GetKeyDown("q")) { 
+            if (mouseMoves) { 
                 mouseMoves = false;
                 Debug.Log(mouseMoves);
             }
-            else
-            {
+            else { 
                 mouseMoves = true;
                 Debug.Log(mouseMoves);
             }
@@ -40,22 +40,25 @@ public class Player_script : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-
+    void FixedUpdate() {
         if (mouseMoves)
         {
 
             Vector3 mousePos = Input.mousePosition;
             {
+                
+
                 mouseX = mousePos.x;
                 mouseY = mousePos.y;
-                changeInMouseX = 0 - (lateMouseX - mouseX);
-                changeInMouseY = lateMouseY - mouseY;
-                Debug.Log(changeInMouseX);
-                Debug.Log(changeInMouseY);
-                transform.Rotate(0.0f, changeInMouseX / 5, 0.0f);
-                playerCamera.transform.Rotate(changeInMouseY / 5, 0.0f, 0.0f);
+                mouseDeltaX = 0 - (newMouseX - mouseX);
+                mouseDeltaY = newMouseY - mouseY;
+                Debug.Log(mouseDeltaX);
+                Debug.Log(mouseDeltaY);
+                transform.Rotate(0.0f, mouseDeltaX / 5, 0.0f);
+                playerCamera.transform.Rotate(mouseDeltaY / 5, 0.0f, 0.0f);
+
+                newMouseX = mouseX;
+                newMouseY = mouseY;
 
             }
         }
@@ -65,33 +68,35 @@ public class Player_script : MonoBehaviour
         if (Input.GetKey("w"))
         {
 
-            m_Rigidbody.AddForce(transform.forward * m_Speed);
+            player.AddForce(transform.forward * playerSpeed);
         }
 
         if (Input.GetKey("s"))
         {
 
-            m_Rigidbody.AddForce(-transform.forward * m_Speed);
+            player.AddForce(-transform.forward * playerSpeed);
         }
 
 
         if (Input.GetKey("a"))
         {
 
-            m_Rigidbody.AddForce(-transform.right * m_Speed);
+            player.AddForce(-transform.right * playerSpeed);
         }
 
         if (Input.GetKey("d"))
         {
 
-            m_Rigidbody.AddForce(transform.right * m_Speed);
+            player.AddForce(transform.right * playerSpeed);
         }
         if (Input.GetKey("escape"))
         {
             Application.Quit();
             
         }
-        
+      
+
+
 
 
     }
@@ -103,15 +108,14 @@ public class Player_script : MonoBehaviour
             if (Input.GetKey("space"))
             {
 
-                m_Rigidbody.AddForce(transform.up * jumpSpeed);
+                player.AddForce(transform.up * jumpSpeed);
             }
         }
     }
     void LateUpdate()
     {
 
-        lateMouseX = mouseX;
-        lateMouseY = mouseY;
+        
         
     }
 }
