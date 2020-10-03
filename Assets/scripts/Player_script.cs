@@ -21,6 +21,7 @@ public class Player_script : MonoBehaviour
     public bool mouseMoves = true;
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Confined;
         
         //Fetch the Rigidbody from the GameObject with this script attached
         player = GetComponent<Rigidbody>();
