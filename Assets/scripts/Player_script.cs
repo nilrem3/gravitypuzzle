@@ -21,7 +21,7 @@ public class Player_script : MonoBehaviour
     public bool mouseMoves = true;
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        
         
         //Fetch the Rigidbody from the GameObject with this script attached
         player = GetComponent<Rigidbody>();
@@ -39,6 +39,7 @@ public class Player_script : MonoBehaviour
             }
 
         }
+        
     }
 
     void FixedUpdate() {
@@ -46,10 +47,13 @@ public class Player_script : MonoBehaviour
 
         if (mouseMoves)
         {
+            //Cursor.lockState = CursorLockMode.Locked;
 
             Vector3 mousePos = Input.mousePosition;
             {
                 
+                
+
 
                 mouseX = mousePos.x;
                 mouseY = mousePos.y;
@@ -59,7 +63,6 @@ public class Player_script : MonoBehaviour
                 Debug.Log(mouseDeltaY);
                 transform.Rotate(0.0f, mouseDeltaX / 5, 0.0f);
                 playerCamera.transform.Rotate(mouseDeltaY / 5, 0.0f, 0.0f);
-
                 newMouseX = mouseX;
                 newMouseY = mouseY;
                 
