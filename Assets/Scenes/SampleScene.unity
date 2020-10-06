@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 78606707}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,7 +158,7 @@ MonoBehaviour:
   player: {fileID: 78606709}
   playerCamera: {fileID: 804651108}
   playerSpeed: 20
-  mouseS: 10
+  mouseS: 8
   jumpSpeed: 100
   mouseMoves: 1
 --- !u!135 &78606708
@@ -625,6 +625,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: movableTestObject1
       objectReference: {fileID: 0}
+    - target: {fileID: 854253638095428540, guid: ba5570ee0bf26bb4f9cc2b645d622578,
+        type: 3}
+      propertyPath: m_TagString
+      value: moveable object
+      objectReference: {fileID: 0}
+    - target: {fileID: 854253638095428540, guid: ba5570ee0bf26bb4f9cc2b645d622578,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5876464399498036137, guid: ba5570ee0bf26bb4f9cc2b645d622578,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -693,6 +703,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: movableTestObject2
+      objectReference: {fileID: 0}
+    - target: {fileID: 396594879032500734, guid: 007fdc2f1ca999d41a5e4bc7b33e2231,
+        type: 3}
+      propertyPath: m_TagString
+      value: moveable object
       objectReference: {fileID: 0}
     - target: {fileID: 9216595832938797414, guid: 007fdc2f1ca999d41a5e4bc7b33e2231,
         type: 3}

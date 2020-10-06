@@ -44,12 +44,8 @@ public class Player_script : MonoBehaviour
             Cursor.visible = false;
             float mousePosX = Input.GetAxis("Mouse X");
             float mousePosY = Input.GetAxis("Mouse Y");
-            float mouseX;
-            float mouseY;
-            mouseX = mousePosX;
-            mouseY = mousePosY;
-            transform.Rotate(0.0f, mouseX * mouseS, 0.0f);
-            playerCamera.transform.Rotate(-mouseY * mouseS, 0.0f, 0.0f);
+            transform.Rotate(0.0f, mousePosX * mouseS, 0.0f);
+            playerCamera.transform.Rotate(-mousePosY * mouseS, 0.0f, 0.0f);
         }
 
         if (Input.GetKey("w"))
