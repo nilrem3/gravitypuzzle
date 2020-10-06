@@ -9,13 +9,7 @@ public class Player_script : MonoBehaviour
     public Rigidbody player;
     public GameObject playerCamera;
     public float playerSpeed = 200f;
-
-    float mouseX;
-    float mouseY;
-    float newMouseX;
-    float newMouseY;
-    float mouseDeltaY;
-    float mouseDeltaX;
+    public float mouseS;
     public float jumpSpeed = 200f;
     
     public bool mouseMoves = true;
@@ -50,11 +44,12 @@ public class Player_script : MonoBehaviour
             Cursor.visible = false;
             float mousePosX = Input.GetAxis("Mouse X");
             float mousePosY = Input.GetAxis("Mouse Y");
-
+            float mouseX;
+            float mouseY;
             mouseX = mousePosX;
             mouseY = mousePosY;
-            transform.Rotate(0.0f, mouseX, 0.0f);
-            playerCamera.transform.Rotate(-mouseY, 0.0f, 0.0f);
+            transform.Rotate(0.0f, mouseX * mouseS, 0.0f);
+            playerCamera.transform.Rotate(-mouseY * mouseS, 0.0f, 0.0f);
         }
 
         if (Input.GetKey("w"))
