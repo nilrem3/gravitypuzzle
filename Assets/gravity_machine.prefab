@@ -107,6 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c8a73584739bab43b3365aead36190b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveableObjects:
+  - {fileID: 854253638095428540, guid: ba5570ee0bf26bb4f9cc2b645d622578, type: 3}
+  - {fileID: 396594879032500734, guid: 007fdc2f1ca999d41a5e4bc7b33e2231, type: 3}
 --- !u!54 &5638170419955930381
 Rigidbody:
   m_ObjectHideFlags: 0

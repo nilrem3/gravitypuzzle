@@ -158,7 +158,7 @@ MonoBehaviour:
   player: {fileID: 78606709}
   playerCamera: {fileID: 804651108}
   playerSpeed: 20
-  mouseS: 8
+  mouseS: 7
   jumpSpeed: 100
   mouseMoves: 1
 --- !u!135 &78606708
