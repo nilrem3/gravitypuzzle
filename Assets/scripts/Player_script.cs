@@ -43,34 +43,20 @@ public class Player_script : MonoBehaviour
     }
 
     void FixedUpdate() {
-        
 
         if (mouseMoves)
         {
-            //Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = false;
+            float mousePosX = Input.GetAxis("Mouse X");
+            float mousePosY = Input.GetAxis("Mouse Y");
 
-            Vector3 mousePos = Input.mousePosition;
-            {
-                
-                
-
-
-                mouseX = mousePos.x;
-                mouseY = mousePos.y;
-                mouseDeltaX = 0 - (newMouseX - mouseX);
-                mouseDeltaY = newMouseY - mouseY;
-                Debug.Log(mouseDeltaX);
-                Debug.Log(mouseDeltaY);
-                transform.Rotate(0.0f, mouseDeltaX / 5, 0.0f);
-                playerCamera.transform.Rotate(mouseDeltaY / 5, 0.0f, 0.0f);
-                newMouseX = mouseX;
-                newMouseY = mouseY;
-                
-            }
+            mouseX = mousePosX;
+            mouseY = mousePosY;
+            transform.Rotate(0.0f, mouseX, 0.0f);
+            playerCamera.transform.Rotate(-mouseY, 0.0f, 0.0f);
         }
 
-
-        
         if (Input.GetKey("w"))
         {
 
